@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: backend
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://ep-fragrant-wave-ac8tz3a9-pooler.sa-east-1.aws.neon.tech/neondb?sslmode=require}
+    driver-class-name: ${SPRING_DATASOURCE_DRIVER:org.postgresql.Driver}
+    username: ${SPRING_DATASOURCE_USERNAME:neondb_owner}
+    password: ${SPRING_DATASOURCE_PASSWORD:npg_cDov2FzLlR9p}
+  jpa:
+    database-platform: ${SPRING_JPA_DATABASE_PLATFORM:org.hibernate.dialect.PostgreSQLDialect}
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+# Security Configuration Placeholder
+jwt:
+  secret: 404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970
+  expiration: 86400000
+
+igdb:
+  client-id: ${IGDB_CLIENT_ID:83o5hh4bg8sudp2vh0m7984jxxqsp5}
+  access-token: ${IGDB_ACCESS_TOKEN:rb0e3tnstrwstj99b8i417ij15r9sx}
