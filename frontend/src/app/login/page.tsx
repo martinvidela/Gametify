@@ -7,6 +7,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { Loader2, CheckCircle2 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { apiFetch } from '../utils/api';
 
 export default function LoginPage() {
     const [username, setUsername] = useState('');
@@ -23,9 +24,8 @@ export default function LoginPage() {
         setError('');
 
         try {
-            const res = await fetch('http://localhost:8080/api/auth/login', {
+            const res = await apiFetch('/auth/login', {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ username, password }),
             });
 

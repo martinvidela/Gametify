@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { Loader2, CheckCircle2, Globe } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { apiFetch } from '../utils/api';
 
 export default function RegisterPage() {
     const [username, setUsername] = useState('');
@@ -23,9 +24,8 @@ export default function RegisterPage() {
         setError('');
 
         try {
-            const res = await fetch('http://localhost:8080/api/auth/register', {
+            const res = await apiFetch('/auth/register', {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ username, email, password, country }),
             });
 
